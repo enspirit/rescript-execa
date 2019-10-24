@@ -1,0 +1,36 @@
+{
+  "name": "@enspirit/bs-execa",
+  "version": "0.1.0",
+  "description": "BuckleScript bindings for Execa.js",
+  "main": "src/Execa.bs.js",
+  "homepage": "https://github.com/enspirit/bs-execa#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enspirit/bs-execa.git"
+  },
+  "author": "ygu",
+  "license": "ISC",
+  "keywords": [
+    "reason",
+    "bucklescript",
+    "execa"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "clean": "bsb -clean-world",
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.9",
+    "bs-platform": "^5.0.6",
+    "jest": "^24.8.0"
+  },
+  "jest": {
+    "testURL": "http://localhost/"
+  },
+  "dependencies": {
+    "execa": "^3.2.0"
+  }
+}
