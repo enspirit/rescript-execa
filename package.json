@@ -1,6 +1,6 @@
 {
   "name": "@enspirit/bs-execa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "BuckleScript bindings for Execa.js",
   "main": "src/Execa.bs.js",
   "homepage": "https://github.com/enspirit/bs-execa#readme",
