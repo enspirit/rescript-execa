@@ -18,7 +18,7 @@ let () =
         );
 
         test("#commandSync works", () =>
-          expect(Execa.commandSync("ls __tests__/execa_spec.re"))
+          expect(Execa.commandSync("ls __tests__/execa_spec.re", ()))
           |> toEqual(res)
         );
       }

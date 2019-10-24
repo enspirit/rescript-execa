@@ -10,4 +10,19 @@ type child_process_result = {
   failed: bool,
 };
 
-[@bs.module "execa"] external commandSync: string => child_process_result = "commandSync";
+[@bs.deriving abstract]
+type options = {
+  shell: bool,
+  [@bs.optional]
+  input: string,
+  [@bs.optional]
+  reject: bool,
+  [@bs.optional]
+  cwd: string,
+  [@bs.optional]
+  stdio: string,
+  [@bs.optional]
+  env: Js.Dict.t(string),
+};
+
+[@bs.module "execa"] external commandSync: string => ~options:options=? => unit => child_process_result = "commandSync";
