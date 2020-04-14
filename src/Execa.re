@@ -1,25 +1,29 @@
-[@bs.deriving abstract]
-type child_process_result = {
-  command: string,
-  exitCode: int,
-  stdout: string,
-  stderr: string,
-  isCanceled: bool,
-  killed: bool,
-  timedOut: bool,
-  failed: bool,
+module StringResult = {
+  [@bs.deriving abstract]
+  type child_process_result = {
+    command: string,
+    exitCode: int,
+    stdout: string,
+    stderr: string,
+    isCanceled: bool,
+    killed: bool,
+    timedOut: bool,
+    failed: bool,
+  };
 };
 
-[@bs.deriving abstract]
-type child_process_result_buffer = {
-  command: string,
-  exitCode: int,
-  stdout: Node.Buffer.t,
-  stderr: Node.Buffer.t,
-  isCanceled: bool,
-  killed: bool,
-  timedOut: bool,
-  failed: bool,
+module BufferResult = {
+  [@bs.deriving abstract]
+  type child_process_result = {
+    command: string,
+    exitCode: int,
+    stdout: Node.Buffer.t,
+    stderr: Node.Buffer.t,
+    isCanceled: bool,
+    killed: bool,
+    timedOut: bool,
+    failed: bool,
+  };
 };
 
 [@bs.deriving abstract]
@@ -39,5 +43,5 @@ type options = {
   encoding: Js.Nullable.t(string)
 };
 
-[@bs.module "execa"] external commandSync: string => ~options:options=? => unit => child_process_result = "commandSync";
-[@bs.module "execa"] external commandSyncBuffer: string => ~options:options=? => unit => child_process_result_buffer = "commandSync";
+[@bs.module "execa"] external commandSync: string => ~options:options=? => unit => StringResult.child_process_result = "commandSync";
+[@bs.module "execa"] external commandSyncBuffer: string => ~options:options=? => unit => BufferResult.child_process_result = "commandSync";
