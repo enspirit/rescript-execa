@@ -1,18 +1,17 @@
 {
-  "name": "@enspirit/bs-execa",
+  "name": "@enspirit/rescript-execa",
   "version": "0.2.1",
-  "description": "BuckleScript bindings for Execa.js",
+  "description": "ReScript bindings for Execa.js",
   "main": "src/Execa.bs.js",
-  "homepage": "https://github.com/enspirit/bs-execa#readme",
+  "homepage": "https://github.com/enspirit/rescript-execa#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enspirit/bs-execa.git"
+    "url": "git+https://github.com/enspirit/rescript-execa.git"
   },
   "author": "ygu",
   "license": "ISC",
   "keywords": [
-    "reason",
-    "bucklescript",
+    "rescript",
     "execa"
   ],
   "scripts": {
@@ -24,7 +23,7 @@
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.9",
-    "bs-platform": "^5.0.6",
+    "bs-platform": "^8.2.0",
     "jest": "^24.8.0"
   },
   "jest": {

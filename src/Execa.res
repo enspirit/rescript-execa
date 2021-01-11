@@ -1,5 +1,5 @@
 module StringResult = {
-  [@bs.deriving abstract]
+  @bs.deriving(abstract)
   type child_process_result = {
     command: string,
     exitCode: int,
@@ -9,11 +9,11 @@ module StringResult = {
     killed: bool,
     timedOut: bool,
     failed: bool,
-  };
-};
+  }
+}
 
 module BufferResult = {
-  [@bs.deriving abstract]
+  @bs.deriving(abstract)
   type child_process_result = {
     command: string,
     exitCode: int,
@@ -23,25 +23,27 @@ module BufferResult = {
     killed: bool,
     timedOut: bool,
     failed: bool,
-  };
-};
+  }
+}
 
-[@bs.deriving abstract]
+@bs.deriving(abstract)
 type options = {
   shell: bool,
-  [@bs.optional]
+  @bs.optional
   input: string,
-  [@bs.optional]
+  @bs.optional
   reject: bool,
-  [@bs.optional]
+  @bs.optional
   cwd: string,
-  [@bs.optional]
+  @bs.optional
   stdio: string,
-  [@bs.optional]
-  env: Js.Dict.t(string),
-  [@bs.optional]
-  encoding: Js.Nullable.t(string)
-};
+  @bs.optional
+  env: Js.Dict.t<string>,
+  @bs.optional
+  encoding: Js.Nullable.t<string>,
+}
 
-[@bs.module "execa"] external commandSync: string => ~options:options=? => unit => StringResult.child_process_result = "commandSync";
-[@bs.module "execa"] external commandSyncBuffer: string => ~options:options=? => unit => BufferResult.child_process_result = "commandSync";
+@bs.module("execa")
+external commandSync: (string, ~options: options=?, unit) => StringResult.child_process_result = "commandSync"
+@bs.module("execa")
+external commandSyncBuffer: (string, ~options: options=?, unit) => BufferResult.child_process_result = "commandSync"
